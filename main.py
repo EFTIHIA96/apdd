@@ -1,5 +1,6 @@
 from read_problem import read_problem
 from read_solution import read_solution, evaluate
+from save_solution import save_solution, color_dsatur
 
 
 if __name__ == "__main__":
@@ -57,4 +58,30 @@ if __name__ == "__main__":
             else:
                 print("not feasible")
                 print()
+
+        elif user_input_integer == 3:
+            if graph == 0:
+                print("NO problem selected")
+                print()
+                continue
+            solution = color_dsatur(graph)
+            periods, feasible = evaluate(graph, solution)
+            if feasible == True:
+                save_solution(problem, solution, periods)
+                print(f"solution uses {periods} periods")
+            else:
+                print("not feasible")
+
+        elif user_input_integer == 4:
+            for problem in paths:
+                graph = read_problem(problem)
+
+                solution = color_dsatur(graph)
+                periods, feasible = evaluate(graph, solution)
+                if feasible == True:
+                    save_solution(problem, solution, periods)
+                    print(f"solution uses {periods} periods")
+
+                else:
+                    print("not feasible")
     print("Goodbye")

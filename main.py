@@ -22,10 +22,13 @@ if __name__ == "__main__":
     graph = 0
 
     while True:
-        print("Select 1-5")
-        print("0. Exit")
-        print("1. Load Problem")
-        print("2. Read solution")
+        print("Επιλέξτε 1-4")
+        print("0. Εξοδος")
+        print("1. Φόρτωση προβλήματος")
+        print("2. Φόρτωση λύσης")
+        print("3. Επίλυση προβλήματος ")
+        print("4. Μαζική επίλυση προβλημάτων")
+
         # user IO keyboard
         user_input = input("Επιλέξτε")
         user_input_integer = int(user_input)
@@ -33,15 +36,15 @@ if __name__ == "__main__":
         if user_input_integer == 0:
             break
 
-        elif user_input_integer == 1:
-            print("choose problem file")
+        # Ανάγνωση προβλήματος σε γραφο
+        if user_input_integer == 1:
             for index, path in enumerate(paths):
                 print(index, path)
-            i = input("Enter problem:")
-            problem = paths[int(i)]
+            i = input("Δώστε νούμερο προβλήματος:")
+            selection = int(i)
+            graph = read_problem(paths[selection])
 
-            graph = read_problem(problem)  # Ανάγνωση προβλήματος σε γραφο
-
+        # Άνάγνωση λύσης
         elif user_input_integer == 2:
             if graph == 0:
                 print("NO problem selected")

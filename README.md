@@ -13,3 +13,5 @@
 ### Python
 
 ### ΝetworkX και greedy_color
+
+## Συμπέρασμα
